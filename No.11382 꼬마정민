@@ -1,0 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+	접근법
+	수 한 자리의 범위가 10의 12승 까지로 잡혀있다.
+	int와 long int의 범위보다 크고 음수를 포함하고 있지 않기 때문에
+	unsigned long의 데이터 타입을 사용하여 문제를 풀이하였다.
+*/
+int main() {
+	unsigned long num1, num2, num3;
+	scanf("%lu %lu %lu", &num1, &num2, &num3);
+	printf("%lu", num1 + num2 + num3);
+	return 0;
+}
