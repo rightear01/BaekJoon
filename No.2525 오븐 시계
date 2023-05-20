@@ -1,0 +1,48 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	int hour, min, totalElapsedTime;
+	scanf("%d %d %d", &hour, &min, &totalElapsedTime);
+
+	if (totalElapsedTime / 60 > 0)
+	{
+		hour += totalElapsedTime / 60;
+		if (hour >= 24)
+		{
+			hour -= 24;
+		}
+
+		min += totalElapsedTime % 60;
+		if (min > 59)
+		{
+			hour += min / 60;
+			min %= 60;
+
+			if (hour >= 24)
+			{
+				hour -= 24;
+			}
+		}
+	}
+	else
+	{
+		min += totalElapsedTime;
+		if (min > 59)
+		{
+			hour += min / 60;
+			min %= 60;
+
+			if (hour > 23)
+			{
+				hour -= 24;
+			}
+		}
+
+	}
+
+	printf("%d %d", hour, min);
+
+	return 0;
+}
