@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+// 수학의 시그마 연산을 구현하는 문제(1 부터 입력받은 값 까지의)
+int main()
+{
+	int num;
+	int sigma = 0;
+	scanf("%d", &num);
+	for (int i = 1; i <= num; i++)
+	{
+		sigma += i;
+	}
+
+	printf("%d", sigma);
+	return 0;
+}
