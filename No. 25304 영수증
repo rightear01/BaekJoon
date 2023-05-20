@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+    int totalPrice, listEa, g_Price, g_Ea;
+    int cumulatedPrice = 0;
+    scanf("%d %d", &totalPrice, &listEa);
+
+    for (int i = 0; i < listEa; i++)
+    {
+        scanf("%d %d", &g_Price, &g_Ea);
+        cumulatedPrice  += (g_Price * g_Ea);
+    }
+    if (totalPrice == cumulatedPrice)
+    {
+        printf("Yes");
+    }
+    else
+    {
+        printf("No");
+    }
+    
+    return 0;
+}
