@@ -1,0 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(){
+	int is_LeapYear;
+	scanf("%d", &is_LeapYear);
+
+	if (is_LeapYear % 4 == 0 && is_LeapYear % 100 != 0 || is_LeapYear % 400 == 0){
+		printf("%d", 1);
+	}
+	else{ printf("%d", 0); }
+
+	return 0;
+}
