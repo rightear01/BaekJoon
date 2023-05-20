@@ -1,0 +1,57 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+접근법
+관계연산자를 사용하여 상금이 지급되는 케이스를 분류하고 상금을 계산하면 된다.
+*/
+int main()
+{
+	int dice1, dice2, dice3;
+	int reward = 0;
+	int lastDice = 0;
+	scanf("%d %d %d", &dice1, &dice2, &dice3);
+
+
+	if (dice1 == dice2 && dice1 ==  dice3)
+	{
+		reward = 10000 + (dice1 * 1000);
+	}
+
+	else if (dice1 == dice2 && dice1 != dice3)
+	{
+		reward = 1000 + (dice1 * 100);
+	}
+
+	else if (dice1== dice3 && dice1 != dice2)
+	{
+		reward = 1000 + (dice1 * 100);
+	}
+
+	else if (dice2 == dice3 && dice2 != dice1)
+	{
+		reward = 1000 + (dice2 * 100);
+	}
+
+	else
+	{
+		if (lastDice < dice1)
+		{
+			lastDice = dice1;
+		}
+
+		if (lastDice < dice2)
+		{
+			lastDice = dice2;
+		}
+
+		if (lastDice < dice3)
+		{
+			lastDice = dice3;
+		}
+
+		reward = lastDice * 100;
+	}
+	printf("%d", reward);
+
+	return 0;
+}
