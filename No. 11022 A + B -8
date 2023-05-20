@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+A + B -7 문제와 다름이 거의 없다.
+어떤 수를 더하였고 해당 몇 번째로 진행되었는지 같이 출력하면 된다.
+*/
+int main()
+{
+	int numA, numB, repetitions;
+	scanf("%d", &repetitions);
+
+	for (int i = 0; i < repetitions; i++)
+	{
+		scanf("%d %d", &numA, &numB);
+		printf("Case #%d: %d + %d = %d\n", i + 1, numA, numB, numA + numB);
+	}
+
+	return 0;
+}
