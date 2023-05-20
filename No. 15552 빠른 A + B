@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+C 이외의 언어를 사용하면 입출력 방식이 느려져 여러 줄을 입력받거나 출력할 때 시간촤과의 가능성이 생기는데
+이에 따라서 어떻게 코드를 짜야 빠른지에 대하여 알려준다.
+다만 필자는 C를 사용하여 문제를 해결하였기 때문에 해당하는 사항이 없다.
+*/
+
+int main()
+{
+	int numA, numB, repetitions;
+	scanf("%d", &repetitions);
+
+	for (int i = 0; i < repetitions; i++)
+	{
+		scanf("%d %d", &numA, &numB);
+		printf("%d\n", numA + numB);
+	}
+
+	return 0;
+}
