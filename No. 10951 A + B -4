@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+접근법
+while 반복문을 사용하여 조건식이 참인 동안에만 반복을 수행할 수 있게 작성하였고, 
+두 개의 변수의 입력값이 EOF 이면 반복을 수행하지 않고 종료하게끔 작성하였다.
+하지만, scanf() 의 경우에는 컨트롤 z(EOF)를 여러번 입력 받아야 동작을 멈추는 단점이 있었다.
+*/
+int main(){
+	int numA, numB;
+	while (scanf("%d %d", &numA, &numB) != EOF){
+		printf("%d\n", numA + numB);
+	}
+
+	return 0;
+}
