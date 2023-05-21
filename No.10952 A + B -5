@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+접근법
+두 개의 변수 numA numB 둘 다 0이 입력되면 종료되어야 한다.
+그 전까지는 저장된 두 값을 더해 해당 결과를 출력한다.
+*/
+int main(){
+	int numA, numB;
+	for (;;){
+		scanf("%d %d", &numA, &numB);
+		if (numA == 0 && numB == 0){ break;}
+		printf("%d\n", numA + numB);
+	}
+
+	return 0;
+}
