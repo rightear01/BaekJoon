@@ -1,0 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(){
+	int repeatStar;
+	scanf("%d", &repeatStar);
+
+	for (int i = 1; i <= repeatStar; i++){
+		for (int k = 0; k < i; k++){ printf("*"); }
+		printf("\n");
+	}
+
+	return 0;
+}
