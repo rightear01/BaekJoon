@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+/*
+접근법
+동적배열을 만들어 수열 A를 이루는 정수 N개가 들어갈 수 있는 사이즈로 잡는다.
+입력받은 수와 비교값을 비교하여 작은 수를 출력하면 된다.(순차검색을 사용)
+*/
+
+
+int main(){
+    int arrayIndex, num, compareNum;;
+    int * array;
+
+    scanf("%d", &arrayIndex);
+    scanf("%d", &compareNum);
+    array = (int*)malloc(sizeof(int) * arrayIndex);
+
+    for (int i = 0; i < arrayIndex; i++){
+        scanf("%d", &num);
+        *(array + i) = num;
+    }
+
+    for (int i = 0; i < arrayIndex; i++){
+        if (compareNum > *(array + i)){ printf("%d ", *(array + i));}
+    }
+ 
+    free(array);
+    return 0;
+}
