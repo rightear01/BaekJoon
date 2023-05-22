@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+/*
+접근법
+ceil = 최댓값, floor = 최솟값을 의미한다.
+동적배열을 이용하여 수들을 입력받고 배열을 순차검색을 통하여
+순회하면서, 최댓값과 최솟값을 비교한다.(삼항연산을 사용)
+*/
+int main(){
+	int arraySize, ceil = -1000000, floor = 1000000;
+	scanf("%d", &arraySize);
+	int* array = (int*)malloc(sizeof(int) * arraySize);
+	for (int i = 0; i < arraySize; i++) { scanf("%d", &array[i]); }
+	for (int i = 0; i < arraySize; i++){
+		ceil = (ceil < array[i]) ? array[i] : ceil;
+		floor = (floor > array[i]) ? array[i] : floor;
+	}
+	printf("%d %d", floor, ceil);
+	return 0;
+}
