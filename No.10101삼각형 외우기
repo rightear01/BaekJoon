@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+접근법
+큰 틀에서 삼각형의 정의를 검사하고
+참이라면 해당 삼각형이 정삼각형인지, 이등변 삼각형인지, 부등변 삼각형인지
+검사하게 하여 해당 삼각형의 명칭을 출력하도록 하였다.
+*/
+int main() {
+	unsigned short angleA, angleB, angleC;
+	scanf("%hu %hu %hu", &angleA, &angleB, &angleC);
+
+	if (angleA + angleB + angleC != 180) printf("Error\n"); // 삼각형의 정의 위반
+	else {
+		if (angleA == 60 && angleB == 60 && angleC == 60) printf("Equilateral\n"); // 정삼각형
+		else if (angleA == angleB || angleC == angleA || angleC == angleB) printf("Isosceles\n");
+        // 이등변 삼각형
+		else printf("Scalene\n"); // 부등변 삼각형
+	}
+	return 0;
+}
