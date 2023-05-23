@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+* 접근법
+* 10810번 문제와 비슷하다.
+* 바구니 개수와 처리 횟수를 입력받는데
+* 조건이 처음에는 바구니의 저장된 공의 번호가 해당 바구니의 번호이기 때문에 맞춰주고
+* 처리횟수 만큼 바구니의 값들을 교환하는 것이니
+* 인덱스를 활용하여 그 방의 값들을 교환시켜주면 된다.
+*/
+
+int main() {
+	int basket, testCase, index1, index2; 
+	scanf("%d %d", &basket, &testCase);
+	int* basketArray = (int*)calloc(basket + 1, sizeof(int));
+	for (int i = 1; i < basket + 1; i++) { basketArray[i] = i; }
+	for (int i = 0; i < testCase; i++) {
+		scanf("%d %d", &index1, &index2);
+		int temporaryNum = basketArray[index1];
+		basketArray[index1] = basketArray[index2];
+		basketArray[index2] = temporaryNum;
+	}
+	for (int i = 1; i < basket + 1; i++) { printf("%d ", basketArray[i]); }
+
+	return 0;
+}
