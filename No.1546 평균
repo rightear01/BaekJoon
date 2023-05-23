@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int subjectNum, ceilScore = 0;
+	double average = 0.0;
+	scanf("%d", &subjectNum);
+	int* testScore = (int*)malloc(sizeof(int) * subjectNum);
+	for (int i = 0; i < subjectNum; i++){
+		scanf("%d", &testScore[i]);
+		if (ceilScore < testScore[i]){ ceilScore = testScore[i]; }
+	}
+	for (int i = 0; i < subjectNum; i++){ average += (double)testScore[i] / ceilScore * 100; }
+	printf("%lf", average / subjectNum);
+	return 0;
+}
