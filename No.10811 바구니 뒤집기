@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+* 접근법
+* 바구니 개수와 처리 횟수를 입력받는데
+* 조건이 처음에는 바구니의 저장된 공의 번호가 해당 바구니의 번호이기 때문에 맞춰주고
+* 처리횟수만큼 반복문이 돌아가는 동안 어디서부터(start) 어디까지(end) 역순으로 변환시킬
+* 것인지 입력받아 변환시켜야 한다.
+* while문을 돌면서 start++ == end-- 가 같이지려면 start와 end 사이의 값이 홀수 여야만
+* 성립이 가능하기 때문에 짝수일때를 고려해야 한다.
+* start + 1 == end가 되는 경우가 사이의 방의 개수가 짝수인 케이스를 해결한다.
+* 서로의 중간지점이 없기 떄문에 서로를 교환하는 것으로 마무리 한다.
+*/
+
+int main() {
+	int basket, testCase, start, end;
+	scanf("%d %d", &basket, &testCase);
+	int* basketArray = (int*)calloc(basket + 1, sizeof(int));
+	for (int i = 1; i < basket + 1; i++) { basketArray[i] = i; }
+	for (int i = 0; i < testCase; i++) {
+		scanf("%d %d", &start, &end);
+		while (start != end) {
+			if (start + 1 == end) {
+				int temp = basketArray[start];
+				basketArray[start] = basketArray[end];
+				basketArray[end] = temp;
+				break;
+			}
+			int temp = basketArray[start];
+			basketArray[start] = basketArray[end];
+			basketArray[end] = temp;
+			start++; end--;
+		}
+	}
+	for (int i = 1; i < basket + 1; i++) { printf("%d ", basketArray[i]); }
+
+	return 0;
+}
