@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+	int testCase, repeTition, len;
+	char string[20]; 		// 문자열의 최대 원소의 개수는 20개이다.
+	scanf("%d", &testCase);		// 총 반복 횟수를 결정한다.
+
+	for (int i = 0; i < testCase; i++){
+		scanf("%d %s", &repeTition, string); // 각 원소의 반복 횟수와 문자열을 결정한다.
+		for (int j = 0; j < (int)strlen(string); j++){ // 입력받은 문자열의 길이만큼 반복한다.
+			// 원소의 반복 횟수 만큼을 반복하면서 각 원소를 출력한다.
+			for (int k = 0; k < repeTition; k++){ printf("%c", *(string + j)); }	
+		}
+		printf("\n");
+	}
+
+	return 0;
+}
