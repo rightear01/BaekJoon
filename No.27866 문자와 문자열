@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+* 접근법
+* 입력값에 i번째의 의미를 생각해야 한다.
+* 인덱스는 0번째 부터 시작하므로
+* 해당하는 값을 출력하기 위한 인덱스에서 - 1의
+* 인덱스를 사용해야 한다.
+*/
+
+int main() {
+	char array[1000];
+	int index;
+	scanf("%s %d", &array, &index);
+	printf("%c", array[index -1]);
+
+	return 0;
+}
