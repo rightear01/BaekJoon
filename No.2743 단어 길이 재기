@@ -1,0 +1,10 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char array[100];  scanf("%s", &array);
+	printf("%d", (int)strlen(array));
+
+	return 0;
+}
