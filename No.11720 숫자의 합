@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+/*
+접근법
+배열로 저장받아(문자로) char 형태의 값으로 저장되어 있는 수에
+'0' 을 빼주어(-48) 아스키 코드의 값으로 저장되어 있는 수를
+정수형 값으로 변환시켜 주는 방법을 사용하였다.
+*/
+
+int main() {
+    int sum = 0, caseRepeat;
+    scanf("%d", &caseRepeat);
+
+    char* caseArray = (char*)malloc(sizeof(char) * caseRepeat);
+    scanf("%s", caseArray);
+
+    for (int i = 0; i < caseRepeat; i++) sum += caseArray[i] - '0';
+    // 0은 아스키코드 48번이다.
+    printf("%d", sum);
+
+    return 0;
+}
