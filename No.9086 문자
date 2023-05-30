@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+/*
+접근법
+입력받은 문자열의 첫 번째 인덱스와 마지막 인덱스에
+저장되어 있는 문자를 출력하면 된다.
+*/
+int main() {
+	int testCase; scanf("%d", &testCase);
+	for (int i = 0; i < testCase; i++) {
+		char array[1000]; scanf("%s", &array);
+		printf("%c%c\n", array[0], array[(int)strlen(array)-1]);
+	}
+
+	return 0;
+}
