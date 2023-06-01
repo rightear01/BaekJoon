@@ -1,0 +1,13 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+// 접근법
+// 의미는 이해가 된다. 입력이 없는 경우(파일의 끝 = EOF) 의 경우 출력을 멈추고
+// 아닌 경우에 계속 출력하게 하는 방법이다. 다만 visual studio에서는 확인이 안된다.
+// 이론적인 부분만 이해하고 넘어가는 문제인듯 하다.
+
+int main() {
+	char array;
+	while (scanf("%c", &array) != EOF) { printf("%c", array); }
+  
+	return 0;
+}
