@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+/*
+접근법
+처음에는 두 수를 입력받고 그 두수의 자릿수를 잘라서 역으로 배열에 저장하였다. 
+이후에는 반복문을 돌려 자릿수를 비교하였고 
+누가 더 큰지 구분하기 위한 지표로 카운터 변수를 두었다. 마지막에 카운터 변수가
+더 큰 배열을 출력하며 마무리하였다.
+*/
+
+int main(){
+	int num1, num2, ctr1 = 0, ctr2 = 0;;
+	scanf("%d %d", &num1, &num2);
+  // 세자릿수를 뒤집어 저장
+	int rNum1[3] = { (num1 % 10), ((num1 % 100) / 10), (num1 / 100) };
+	int rNum2[3] = { (num2 % 10), ((num2 % 100) / 10), (num2 / 100) };
+
+	for (int i = 0; i < 3; i++){
+		if (rNum1[i] > rNum2[i]){ ctr1++; break; }  // rNum1의 자릿수가 더 크다면, ctr1 변수 증가시키고 바로 종료
+		else if (rNum1[i] == rNum2[i]){ continue; } // 각 자릿수가 같다면 카운터의 증가 없이 진행
+		else { ctr2++; }                            // 나머지 경우는 rNum2의 자릿수가 더 크기에 ctr2 증가
+	}
+  // 최종적으로 카운터 변수값 비교후 더 큰 배열을 출력
+	if (ctr1 > ctr2){
+		for (int i = 0; i < 3; i++){
+			printf("%d", rNum1[i]);
+      }
+	}
+
+	else{
+		for (int i = 0; i < 3; i++){ printf("%d", rNum2[i]); }
+	}
+	return 0;
+}
