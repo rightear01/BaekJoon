@@ -1,0 +1,16 @@
+#include <stdio.h>
+/*
+접근법
+이스케이프 시퀀스를 이용하여
+문제에서 주어진 새싹을 출력한다.
+*/
+int main(){
+	printf("         ,%c\'\"%d\n", 'r', 7);
+	printf("%c`-_   ,\'  ,/\n", 'r');
+	printf(" \\. \". %c_%c\'\n", 'L', 'r'); 
+	printf("   `~\\/\n");
+	printf("      |\n");
+	printf("      |\n");
+
+	return 0;
+}
