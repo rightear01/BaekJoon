@@ -1,0 +1,31 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+* 접근법
+* 규칙을 유추한 뒤에 별을 찍어 보아라.
+* 첫째 줄에 (1<= N <= 100)이 주어진다.
+* 
+* 출력
+* 첫째 줄부터 (2xN)-1번째 줄까지 차례대로 별을 출력한다.
+* 입력이 5일때 최대 별의 개수는 9개이다.
+* 별 이후의 공백은 찍는 것이 아니기 때문에
+* 요점은 처음 공백 계산과 그 뒤에 이따르는 별찍기이다.
+*/
+
+int main() {
+	int repeatStar; scanf("%d", &repeatStar);
+	for (int i = 1; i <= repeatStar; i++) {
+		for (int j = repeatStar - i; j > 0; j--) { printf(" "); }
+		for (int k = 0; k <  i * 2 - 1; k++) { printf("*"); }
+		printf("\n");
+	}
+	// 마름모 형태를 반으로 나누어 출력하였다.
+	for (int i = 1; i <= repeatStar - 1; i++) {
+		for (int j = 0; j < i ; j++) { printf(" "); }
+		for (int k = repeatStar * 2 - (i * 2 + 1); k > 0; k--) { printf("*"); } 
+        // 별의 개수가 repeatStar - 홀수개(3부터 시작) 으로 찍혀야 하기 때문에
+		printf("\n");
+	}
+
+	return 0;
+}
