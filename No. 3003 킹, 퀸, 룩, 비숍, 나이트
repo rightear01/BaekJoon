@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+접근법
+각 말의 초깃값으로 체스에서 정해져 있는 말의 개수를 주고
+동혁이가 발견한 흰색 피스들을 각각 킹 퀸 룩 비숍 나이트 폰 변수에 저장한다.
+원래 개수에서 동혁이가 발견한 말의 개수들을 빼주어 출력하면 된다.
+*/
+int main(){
+	int king = 1, queen = 1, rook = 2, bishop = 2, knight = 2, pawn = 8;
+	int uKing, uQueen, uRook, uBishopm, uKnight, uPawn;
+	scanf("%d %d %d %d %d %d", &uKing, &uQueen, &uRook, &uBishopm, &uKnight, &uPawn);
+	printf("%d %d %d %d %d %d", king - uKing, queen - uQueen, 
+	rook - uRook, bishop - uBishopm, knight - uKnight, pawn - uPawn);
+	return 0;
+}
