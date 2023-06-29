@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int baskets, roof, begin , end, mid; scanf("%d %d", &baskets, &roof);
+	// i번째 바구니부터 j번째 바구니의 순서를 회전시키는데, 그 때 기준 바구니는 k번째 바구니이다.
+	// ( 1 <= begin(i) <= mid(k) <= end(j) <= baskets)
+	// mid를 기준으로 앞쪽은 뒤로(end에 해당하는 index 까지) 뒤쪽은 앞으로 이동
+	// 임시 배열인 tempArray를 선언하여 기존에 basketsArray에서 처리할 값들을 순서대로 저장하게 만들었다.
+	// 이후에 basketsArray의 begin - end 인덱스만큼을 tempArray에 저장되어있는 값들로 덮어서 문제를 풀었다.
+	int* basketsArray = (int*)calloc(baskets + 1, sizeof(int));
+	for (int i = 1; i <= baskets; i++) { basketsArray[i] = i;}
+	for (int i = 0; i < roof; i++) {
+		scanf("%d %d %d", &begin, &end, &mid); int ctr = 0;
+		int* tempArray = (int*)calloc(end - begin + 1, sizeof(int));
+		// 회전에 필요한 개수만큼 방을 잡는다.
+		for (int i = mid; i <= end; i++) {
+			tempArray[ctr++] = basketsArray[i];
+		}
+		for (int i = begin; i <= mid - 1; i++) {
+			tempArray[ctr++] = basketsArray[i];
+		}
+		ctr = 0;
+		for (int i = begin; i <= end; i++) {
+			basketsArray[i] = tempArray[ctr++];
+		}
+		free(tempArray);
+	}
+	for (int i = 1; i <= baskets; i++) {
+		printf("%d ", basketsArray[i]);
+	}
+
+	return 0;
+}
