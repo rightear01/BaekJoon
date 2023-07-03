@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+/*
+접근법
+문자열에 포함되어 있는 모든 원소의 개수에서 크로아티아 알파벳에 해당하는 개수만큼을 빼준다면,
+알파벳과 크로아티아 알파벳이 몇 개가 있는지 구할 수 있다. 조심해야 할 것은,
+크로아티아 알파벳은 최소 두 개의 문자로 이루어져 있다는 것이다. 
+기본적인 a ~ z + = 의 형태와 a ~ z + - 형태의 경우에는 = 과 – 의 개수만 검사하여 카운터 변수를 감소시키면 되지만,
+lj, nj, dz= 의 경우에는 두 개의 문자 이상을 검사해야 했기 때문에 논리연산을 통하여 해당 사항을 체크하게 로직을 작성하였다.
+*/
+int main(){
+	char croatiaArray[100];
+	scanf("%s", croatiaArray);
+	int ctr = (int)strlen(croatiaArray);
+
+	for (int i = 0; i < (int)strlen(croatiaArray); i++){
+		if (croatiaArray[i] == '='){
+			ctr = ctr - 1;
+      if (croatiaArray[i - 2] == 'd' && croatiaArray[i - 1] == 'z'){ ctr = ctr - 1; }
+		}
+    if (croatiaArray[i - 1] == 'l' && croatiaArray[i] == 'j'){ ctr = ctr - 1; }
+		if (croatiaArray[i - 1] == 'n' && croatiaArray[i] == 'j'){ ctr = ctr - 1; }
+		if (croatiaArray[i] == '-'){ ctr = ctr - 1; }
+	}
+
+	printf("%d", ctr);
+	return 0;
+}
