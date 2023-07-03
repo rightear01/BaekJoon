@@ -1,0 +1,58 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+typedef struct {
+    char title[50];    // 과목명
+    float num;         // 점수
+    char grade[2];     // 등급
+}myHope;
+
+int main() {
+    myHope array[20];
+    float numGradeCumulation = 0;
+    float numCumulation = 0;
+    for (int i = 0; i < 20; i++) {
+        scanf("%s", &array[i].title);
+        scanf("%f", &array[i].num);
+        scanf("%s", &array[i].grade);
+        if (strcmp(array[i].grade, "A+") == 0) {
+            numGradeCumulation += array[i].num * 4.5;
+            numCumulation += array[i].num;
+        }
+        else if (strcmp(array[i].grade, "A0") == 0) {
+            numGradeCumulation += array[i].num * 4.0;
+            numCumulation += array[i].num;
+        }
+        else  if (strcmp(array[i].grade, "B+") == 0) {
+            numGradeCumulation += array[i].num * 3.5;
+            numCumulation += array[i].num;
+        }
+        else  if (strcmp(array[i].grade, "B0") == 0) {
+            numGradeCumulation += array[i].num * 3.0;
+            numCumulation += array[i].num;
+        }
+        else if (strcmp(array[i].grade, "C+") == 0) {
+            numGradeCumulation += array[i].num * 2.5;
+            numCumulation += array[i].num;
+        }
+        else if (strcmp(array[i].grade, "C0") == 0) {
+            numGradeCumulation += array[i].num * 2.0;
+            numCumulation += array[i].num;
+        }
+        else if (strcmp(array[i].grade, "D+") == 0) {
+            numGradeCumulation += array[i].num * 1.5;
+            numCumulation += array[i].num;
+        }
+        else if (strcmp(array[i].grade, "D0") == 0) {
+            numGradeCumulation += array[i].num * 1.0;
+            numCumulation += array[i].num;
+        }
+        else if (strcmp(array[i].grade, "F") == 0) {
+            numGradeCumulation += array[i].num * 0;
+            numCumulation += array[i].num;
+        }
+        else continue;
+    }
+    printf("%f", numGradeCumulation / numCumulation);
+    return 0;
+}
