@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int caseRepeat;
+	scanf("%d", &caseRepeat);
+	for (int i = 0; i < caseRepeat; i++){
+		int studentNum, acNum = 0, ctr = 0;
+		double average = 0.0;
+		scanf("%d", &studentNum);
+    // 각 테스트 케이스마다 학생의 수N이 첫 수로 주어지면 해당 크기만큼의 배열을 동적 할당한다.
+		int* scoreArray = (int*)malloc(sizeof(int) * studentNum);
+    // 각 학생의 점수를 배열로 입력받아 저장하고 그 값들을 acNum에 누적하여 합한다.
+		for (int i = 0; i < studentNum; i++){
+			scanf("%d", &scoreArray[i]);
+			acNum += scoreArray[i];
+		}
+		average = acNum / studentNum;
+		for (int i = 0; i < studentNum; i++){
+      // 평균 값은 double이기 때문에 저장받은 점수들을 비교 할 때에도 double타입으로 캐스팅하고
+      // 평균 값을 넘는 학생들을 카운트한다.
+			if (average < (double)scoreArray[i]){ ++ctr; }
+		}
+      // 평균값을 넘은 학생들을의 비율을 계산하여 출력한다.(소수점 셋째 자리까지 출력이므로 %.3lf 형식지정자 사용)
+		printf("%.3lf%%\n", ((double)ctr / studentNum) * 100);
+	}
+
+	return 0;
+}
