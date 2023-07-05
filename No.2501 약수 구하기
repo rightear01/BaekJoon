@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main() { 
+	int num, sequence, ctr = 0;
+	scanf("%d %d", &num, &sequence);
+	if (num < sequence) { printf("%d", 0); return 0; } // 초기에 입력받은 값이 범위를 벗어나는 경우 0출력 후 종료
+	for (int i = 1; i <= num; i++) {
+		//  약수관계가 성립하는 경우에 카운트를 진행하여 해당 카운트 값과 입력받은 약수의 순서가 일치하는 경우
+		// 해당 순서의 약수를 출력하고 반복문 탈출
+		if (num % i == 0) { if (++ctr == sequence) { printf("%d", i); break; }}
+	}
+	// 반복문을 다 맞추었는데(ctr값 최대치) 입력받은 약수의 순서보다 작은경우(실패) 0 출력
+	if (ctr < sequence) { printf("%d", 0); }
+
+	return 0;
+}
