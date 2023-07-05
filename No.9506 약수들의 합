@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main() {
+	while (1) {
+		int inputNum, sum = 0, ctr = 0;
+		scanf("%d", &inputNum);
+		if (inputNum == -1) { break; } // -1 입력시 반복문 종료
+		// ctr = + 출력 개수, sum = 약수들의 합
+		for (int i = 1; i < inputNum; i++) { if (inputNum % i == 0) { ++ctr; sum += i; } }
+		if ( sum == inputNum ){
+			printf("%d = ", sum);
+			for (int i = 1; i < sum; i++) {
+				if (sum % i == 0) { 
+					printf("%d ", i);
+					if (--ctr != 0) { printf("+ "); }
+				}
+			 }
+			printf("\n");
+		}
+		// 약수들의 합과 입력받은 값이 다른 경우 처리
+		else { printf("%d is NOT perfect.\n", inputNum); }
+	}
+	
+	return 0;
+}
