@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+#define TRUE 1
+#define FALSE 0
+#include <stdio.h>
+/*
+* 접근법
+* 플래그를 사용하여 소수이면 TRUE 아니면 FALSE로 표시할 수 있게 하였다.
+* 입력받은 범위 (start - end)에서 숫자 하나씩 소수인지 아닌지를 판별 할 수 있게 문제를 풀이하였다.
+* 소수를 계산할 때에 1과 자신 이외의 수로 나누어 떨어지는 케이스가 하나라도 발생한다면,
+* 플래그를 FALSE로 변환시키고 계산을 멈춘다.
+*  마지막 계산이 끝나고 출력은 sum의 값이 0 (!sum == 1)이면 계산이 끝난 이후에 소수가 없었다는 결론이 나오기에
+*  출력을 -1로 하고
+*  그렇지 않다는 케이스에는 최소값과 소수들의 합을 출력하게 만들었다.
+*/
+
+
+int main() {
+	int start, end, floor = 10000, sum = 0;
+	scanf("%d %d", &start, &end);
+	for (int i = start; i <= end; i++) {
+		int flag = TRUE;
+		if (i == 1) { continue; } 
+		// 1은 소수가 아니기 때문에 건너뛴다.
+		for (int j = 2; j < i; j++) { if (i % j == 0) { flag = FALSE; break; } } 
+		// 1과 자기 자신 이외의 수로 나누어 떨어지는 경우
+		if (flag == TRUE) { sum += i; if (i < floor) { floor = i; } }
+		// 검사가 끝난 이후 소수임이 밝혀진 경우
+	}
+	if (!sum) { printf("%d", -1); }
+	// 소수 값이 하나라도 합해지지 않은 경우(범위내의 소수의 존재 x)
+	else { printf("%d\n%d", sum, floor); }
+	 
+	return 0;
+}
