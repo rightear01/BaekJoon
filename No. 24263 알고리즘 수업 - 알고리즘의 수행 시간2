@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+/*
+접근법
+for문의 수행 횟수는 n번이기 때문에
+시간 복잡도는 O(n)이 되고
+다항식으로 표현하였을 때에는 최고 차항의 계수가 1이된다.
+따라서 수행횟수는 입력된 값이고 이후 1을 출력하면 된다.
+*/
+int main() {
+	int fcNum; scanf("%d", &fcNum);
+	printf("%d\n%d", fcNum,  1);
+
+	return 0;
+}
