@@ -1,0 +1,3 @@
+numArr = list(map(int, input().split()))
+numArr.sort()
+print(numArr[1])
